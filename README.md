@@ -1,4 +1,4 @@
-# Node Scripts
+# NodeJS Scripts
 
 Dummy tests are in `jenkins-tests`.
 
