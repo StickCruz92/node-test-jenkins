@@ -2,3 +2,5 @@
 
 Dummy + tests are in `jenkins-tests`.
 
+jenkins-tests/Jenkinsfile
+
