@@ -1,22 +1,31 @@
 pipeline {
   agent any
   tools {
-    nodejs '12.10.0'
+    nodejs('12.10.0') 
+    // some block
   }
 
   options {
-    timeout(time: 2, unit: 'MINUTES')
+    timeout(time: 3, unit: 'MINUTES')
   }
 
   stages {
     stage('Install dependencies') {
       steps {
         echo "Hello World!"
+        bat "ipconfig"
+        bat "cd jenkins-tests && npm i"
       }
     }
     stage('Run tests') {
       steps {
         echo "Hello World! 2"
+        bat "cd jenkins-tests && npm t"
+      }
+    }
+    stage('RUN REMOTE') {
+      steps {
+        build job: 'parameterized', parameters: [string(name: 'ROOT_ID', value: '$BUILD_ID')]
       }
     }
   }
