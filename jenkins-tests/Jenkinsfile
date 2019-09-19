@@ -8,16 +8,14 @@ pipeline {
     timeout(time: 2, unit: 'MINUTES')
   }
 
+  stage('Git') {
+		git 'https://github.com/StickCruz92/node-test-jenkins.git'
+	}
+
   stages {
     stage('Build') {
       steps {
         echo "Hello World!"
-        sh 'npm install'
-      }
-    }
-    stage('Run tests') {
-      steps {
-        sh 'npm test'
       }
     }
   }
